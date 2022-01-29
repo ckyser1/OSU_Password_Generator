@@ -9,17 +9,16 @@ const length = document.getElementById("length");
 const incNumbers = document.getElementById("numbers");
 const incSymbols = document.getElementById("symbols");
 const incUppercase = document.getElementById("uppercase");
+//constant callouts for each element to be used
 
 var generateBtn = document.querySelector("#generate");  //variable generate button calls to button id generate
 
-// Write password to the #password input
-
 generateBtn.addEventListener("click", () => {
     let characters = lowercase;
-    incUppercase.checked ? (characters += uppercase) : "";
-    incNumbers.checked ? (characters += numbers) : "";
-    incSymbols.checked ? (characters += symbols) : "";
-    passwordTxt.value = generatePassword(length.value, characters);
+    incUppercase.checked ? (characters += uppercase) : "";//allows uppercase if checkbox is selected
+    incNumbers.checked ? (characters += numbers) : "";//allows numbers
+    incSymbols.checked ? (characters += symbols) : "";//allows symbols
+    passwordTxt.value = generatePassword(length.value, characters);//generation value
 })
 
 const generatePassword = (length, characters) => {
@@ -29,5 +28,5 @@ const generatePassword = (length, characters) => {
         Math.floor(Math.random() * characters.length)
       );
     }
-    return password;
+    return password;//returns the password generated from the for loop
   };
